@@ -21,14 +21,14 @@ for(var i = 0; i < patients.length; i++) {
     var alturaValida = true;
 
     if (peso <= 0 || peso >= 1000) {
-        console.log("Peso Inválido");
+        //console.log("Peso Inválido");
         pesoValido = false;
         tdImc.textContent = "Peso inválido!";
         patient.classList.add("paciente-invalido");
     }
 
     if (altura <= 0 || altura >= 3.00) {
-        console.log("Altura Inválida");
+        //console.log("Altura Inválida");
         alturaValida = false;
         tdImc.textContent = "Altura inválida!";
         patient.classList.add("paciente-invalido");
@@ -43,8 +43,37 @@ for(var i = 0; i < patients.length; i++) {
 }
 
 var addButton = document.querySelector("#adicionar-paciente");
-addButton.addEventListener("click", function() {
-    console.log("Add button!");
+addButton.addEventListener("click", function(event) {
+    event.preventDefault(); // Previne o comportamento padrão (recarregar toda página)
+    
+    var form = document.querySelector("#form-add");
+
+    var nome = form.nome.value;
+    var peso = form.peso.value;
+    var altura = form.altura.value;
+    var gordura = form.gordura.value;
+
+    var patientTr = document.createElement("tr");
+
+    var nomeTd = document.createElement("td");
+    var pesoTd = document.createElement("td");
+    var alturaTd = document.createElement("td");
+    var gorduraTd = document.createElement("td");
+    var imcTd = document.createElement("td");
+
+    nomeTd.textContent = nome;
+    pesoTd.textContent = peso;
+    alturaTd.textContent = altura;
+    gorduraTd.textContent = gordura;
+
+    patientTr.appendChild(nomeTd);
+    patientTr.appendChild(pesoTd);
+    patientTr.appendChild(alturaTd);
+    patientTr.appendChild(gorduraTd);
+
+    var tabela = document.querySelector("#tabela-pacientes");
+    
+    tabela.appendChild(patientTr);
 });
 
 /*title_name.addEventListener("click", mostraMensagem);
