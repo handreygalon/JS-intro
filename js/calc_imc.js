@@ -35,46 +35,12 @@ for(var i = 0; i < patients.length; i++) {
     }
 
     if (pesoValido && alturaValida) {
-        var tdImc = patient.querySelector(".info-imc");
-        var imc = peso / (altura * altura);
+        //var tdImc = patient.querySelector(".info-imc");
+        var imc = calculaIMC(peso, altura);
         
-        tdImc.textContent = imc.toFixed(2);
+        tdImc.textContent = imc;
     }
 }
-
-var addButton = document.querySelector("#adicionar-paciente");
-addButton.addEventListener("click", function(event) {
-    event.preventDefault(); // Previne o comportamento padrão (recarregar toda página)
-    
-    var form = document.querySelector("#form-add");
-
-    var nome = form.nome.value;
-    var peso = form.peso.value;
-    var altura = form.altura.value;
-    var gordura = form.gordura.value;
-
-    var patientTr = document.createElement("tr");
-
-    var nomeTd = document.createElement("td");
-    var pesoTd = document.createElement("td");
-    var alturaTd = document.createElement("td");
-    var gorduraTd = document.createElement("td");
-    var imcTd = document.createElement("td");
-
-    nomeTd.textContent = nome;
-    pesoTd.textContent = peso;
-    alturaTd.textContent = altura;
-    gorduraTd.textContent = gordura;
-
-    patientTr.appendChild(nomeTd);
-    patientTr.appendChild(pesoTd);
-    patientTr.appendChild(alturaTd);
-    patientTr.appendChild(gorduraTd);
-
-    var tabela = document.querySelector("#tabela-pacientes");
-    
-    tabela.appendChild(patientTr);
-});
 
 /*title_name.addEventListener("click", mostraMensagem);
 function mostraMensagem() {
@@ -82,6 +48,12 @@ function mostraMensagem() {
 }*/
 
 // Anonymous function
-title_name.addEventListener("click", function() {
+/*title_name.addEventListener("click", function() {
     console.log("Olá, eu fui clicado através de função anônima!");
-});
+});*/
+
+function calculaIMC(peso, altura) {
+    var imc = 0;
+    imc = peso / (altura * altura);
+    return imc.toFixed(2);
+}
