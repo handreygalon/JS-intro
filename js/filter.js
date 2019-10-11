@@ -15,7 +15,7 @@ fieldFilter.addEventListener("input", function() {
             /*
             name.substr(0, this.value.length); 
 
-            var compare = nome.substr(0, this.value.length);
+            var compare = name.substr(0, this.value.length);
             if (!(this.value == compare)) {
                 patient.classList.add("invisible");
             } else{
@@ -24,14 +24,14 @@ fieldFilter.addEventListener("input", function() {
 
             OR, compare upper and lowercase:
 
-            var comparavel = nome.substr(0, this.value.length);
-            var comparavelMinusculo = comparavel.toLowerCase();
-            var valorDigitadoMinusculo = this.value.toLowerCase();
+            var compare = name.substr(0, this.value.length);
+            var compareLowerCase = compare.toLowerCase();
+            var valueTypeLower = this.value.toLowerCase();
 
-            if (!(valorDigitadoMinusculo == comparavelMinusculo)) {
-                paciente.classList.add("invisivel");
+            if (!(valueTypeLower == compareLowerCase)) {
+                patient.classList.add("invisible");
             } else{
-                paciente.classList.remove("invisivel");
+                patient.classList.remove("invisible");
             }
             */
 
