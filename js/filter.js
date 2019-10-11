@@ -11,9 +11,11 @@ fieldFilter.addEventListener("input", function() {
     
             var tdName = patient.querySelector(".info-nome");
             var name = tdName.textContent;
+
+            var expression = new RegExp(this.value, "i");
     
             /* Conteúdo de texto do campo */
-            if (name != this.value) {
+            if (!expression.test(name)) {
                 patient.classList.add("invisible");
             } else {
                 patient.classList.remove("invisible");
