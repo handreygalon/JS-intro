@@ -12,6 +12,29 @@ fieldFilter.addEventListener("input", function() {
             var tdName = patient.querySelector(".info-nome");
             var name = tdName.textContent;
 
+            /*
+            name.substr(0, this.value.length); 
+
+            var compare = nome.substr(0, this.value.length);
+            if (!(this.value == compare)) {
+                patient.classList.add("invisible");
+            } else{
+                patient.classList.remove("invisible");
+            }
+
+            OR, compare upper and lowercase:
+
+            var comparavel = nome.substr(0, this.value.length);
+            var comparavelMinusculo = comparavel.toLowerCase();
+            var valorDigitadoMinusculo = this.value.toLowerCase();
+
+            if (!(valorDigitadoMinusculo == comparavelMinusculo)) {
+                paciente.classList.add("invisivel");
+            } else{
+                paciente.classList.remove("invisivel");
+            }
+            */
+
             var expression = new RegExp(this.value, "i");
     
             /* Conteúdo de texto do campo */
