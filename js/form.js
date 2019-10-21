@@ -3,12 +3,7 @@ addButton.addEventListener("click", function(event) {
     event.preventDefault(); // Previne o comportamento padrão (recarregar toda página)
     
     var form = document.querySelector("#form-add");
-    
-    // Extracting info from form
-    var patient = getPatientFromForm(form);
-
-    // Creating tr and td
-    var patientTr = buildTr(patient);
+    var patient = getPatientFromForm(form);  // Extracting info from form
 
     var arrErr = validatePatient(patient);
     console.log(arrErr);
@@ -17,15 +12,18 @@ addButton.addEventListener("click", function(event) {
         return;
     }
 
-    // Add patient to the table
-    var tabela = document.querySelector("#tabela-pacientes");
-    
-    tabela.appendChild(patientTr);
+    addPatientToTable(patient);
 
     form.reset();
     var msgErrors = document.querySelector("#mensagens-erro");
     msgErrors.innerHTML = "";
 });
+
+function addPatientToTable(patient) {
+    var patientTr = buildTr(patient);
+    var tabela = document.querySelector("#tabela-pacientes");  // Add patient to the table
+    tabela.appendChild(patientTr);
+}
 
 function getPatientFromForm(form) {
     var patient = {
@@ -43,10 +41,10 @@ function buildTr(patient) {
     var patientTr = document.createElement("tr");
     patientTr.classList.add("paciente"); 
 
-    patientTr.appendChild(buildTd(patient.name, "info-nome"));
-    patientTr.appendChild(buildTd(patient.weight, "info-peso"));
-    patientTr.appendChild(buildTd(patient.height, "info-altura"));
-    patientTr.appendChild(buildTd(patient.fat, "info-gordura"));
+    patientTr.appendChild(buildTd(patient.nome, "info-nome"));
+    patientTr.appendChild(buildTd(patient.peso, "info-peso"));
+    patientTr.appendChild(buildTd(patient.altura, "info-altura"));
+    patientTr.appendChild(buildTd(patient.gordura, "info-gordura"));
     patientTr.appendChild(buildTd(patient.imc, "info-imc"));
 
     return patientTr;
